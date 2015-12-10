@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 export default function connect(WrappedComponent, stateSlice) {
-  return class ConnectDecorator extends Component {
+  return class Connect extends Component {
 
     static contextTypes = {
       store: PropTypes.object.isRequired
