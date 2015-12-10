@@ -8,10 +8,10 @@ export default function createStore(reducer, initialState) {
     'Error creating store: `reducer` is undefined.'
   )
 
-  const state$ = Observable(reducer(initialState))
+  const state$ = Observable(createReducer(initialState))
 
   const updateState = (action) =>
-    state$.set(reducer(state$(), action))
+    state$.set(createReducer(state$(), action))
 
   const getState = () => state$()
 

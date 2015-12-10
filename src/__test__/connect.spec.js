@@ -1,14 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import expect from 'expect'
-import reducer from 'utils/reducer'
+import createReducer from './createReducer'
 import createStore from './createStore'
 import Provider from './Provider'
 import connect from './connect'
 
-describe('(./connect.js)', () => {
+describe('(connect.js)', () => {
 
-  const dummyReducer = reducer({ query: '' }, {
+  const dummyReducer = createReducer({ query: '' }, {
     query(state, action) {
       return {
         query: action.payload.query

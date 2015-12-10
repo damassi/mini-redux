@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { mount } from 'enzyme'
 import expect from 'expect'
-import reducer from 'utils/reducer'
+import createReducer from './createReducer'
 import createStore from './createStore'
 import Provider from './Provider'
 import connect from './connect'
@@ -11,7 +11,7 @@ describe('(./Provider.js)', () => {
     query: ''
   }
 
-  const dummyReducer = reducer(initialState, {
+  const dummyReducer = createReducer(initialState, {
     query(state, action) {
       return {
         query: action.payload.query

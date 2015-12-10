@@ -1,6 +1,6 @@
 import camelCase from 'lodash.camelcase'
 
-export default function reducer(actionsMap, initialState) {
+export default function createReducer(actionsMap, initialState) {
   return (state = initialState, action) => {
     const reduceFn = action && actionsMap[camelCase(action.type)]
 

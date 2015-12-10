@@ -25,7 +25,7 @@ export default class Provider extends Component {
     const { store } = this.props
 
     store.onChange((update) => {
-      const newState = store.reducer(update)
+      const newState = store.createReducer(update)
 
       this.setState({
         history: this.state.history.concat([newState])

@@ -1,7 +1,7 @@
 import expect from 'expect'
-import reducer from 'utils/reducer'
+import createReducer from './createReducer'
 
-describe('(utils/reducer.js)', () => {
+describe('(createReducer.js)', () => {
 
   it('should return a reducer', () => {
     const initialState = {
@@ -18,10 +18,10 @@ describe('(utils/reducer.js)', () => {
       }
     }
 
-    const queryReducer = reducer(actionsMap, initialState)
+    const queryReducer = createReducer(actionsMap, initialState)
 
     expect(
-      queryReducer(initialState, {
+      querycreateReducer(initialState, {
         type: 'QUERY',
         payload: {
           query: 'updated'

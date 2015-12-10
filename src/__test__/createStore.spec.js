@@ -1,10 +1,10 @@
 import expect from 'expect'
-import reducer from 'utils/reducer'
+import createReducer from './createReducer'
 import createStore from './createStore'
 
 describe('(./createStore.js)', () => {
 
-  const dummyReducer = reducer({ query: '' }, {
+  const dummyReducer = createReducer({ query: '' }, {
     query(state, action) {
       return {
         query: action.payload.query
