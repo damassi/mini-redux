@@ -1,18 +1,26 @@
 import expect from 'expect'
-import flickrReducer from 'reducers/flickrReducer'
-import createStore from 'utils/createStore'
+import reducer from 'utils/reducer'
+import createStore from './createStore'
 
-describe('(utils/createStore.js)', () => {
+describe('(./createStore.js)', () => {
+
+  const dummyReducer = reducer({ query: '' }, {
+    query(state, action) {
+      return {
+        query: action.payload.query
+      }
+    }
+  })
 
   it('should return a store', () => {
-    const store = createStore(flickrReducer)
+    const store = createStore(dummyReducer)
 
     expect(store).toExist()
     expect(store).toBeAn(Object)
   })
 
   it('should should return a store with initial state', () => {
-    const store = createStore(flickrReducer, {
+    const store = createStore(dummyReducer, {
       test: 'state'
     })
 
@@ -20,31 +28,31 @@ describe('(utils/createStore.js)', () => {
   })
 
   it('should return `dispatch`', () => {
-    const { dispatch } = createStore(flickrReducer)
+    const { dispatch } = createStore(dummyReducer)
 
     expect(dispatch).toBeA(Function)
   })
 
   it('should return `getState`', () => {
-    const { dispatch } = createStore(flickrReducer)
+    const { dispatch } = createStore(dummyReducer)
 
     expect(dispatch).toBeA(Function)
   })
 
   it('should return `onChange`', () => {
-    const { onChange } = createStore(flickrReducer)
+    const { onChange } = createStore(dummyReducer)
 
     expect(onChange).toBeA(Function)
   })
 
   it('should return the reducer passed in via `reducer`', () => {
-    const { reducer } = createStore(flickrReducer)
+    const { reducer } = createStore(dummyReducer)
 
-    expect(reducer).toEqual(flickrReducer)
+    expect(reducer).toEqual(dummyReducer)
   })
 
   it('should trigger `onChange` when state updates via `dispatch`', (done) => {
-    const store = createStore(flickrReducer)
+    const store = createStore(dummyReducer)
 
     store.onChange((newState) => {
       expect(newState.query).toEqual('new query')
@@ -60,7 +68,7 @@ describe('(utils/createStore.js)', () => {
   })
 
   it('should return state', () => {
-    const store = createStore(flickrReducer, {
+    const store = createStore(dummyReducer, {
       query: 'first query'
     })
 

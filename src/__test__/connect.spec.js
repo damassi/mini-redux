@@ -1,15 +1,23 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import expect from 'expect'
-import createStore from 'utils/createStore'
-import reducer from 'reducers/flickrReducer'
-import Provider from 'components/utils/Provider'
-import connect from 'components/utils/connect'
+import reducer from 'utils/reducer'
+import createStore from './createStore'
+import Provider from './Provider'
+import connect from './connect'
 
-describe('(components/utils/connect.js)', () => {
+describe('(./connect.js)', () => {
+
+  const dummyReducer = reducer({ query: '' }, {
+    query(state, action) {
+      return {
+        query: action.payload.query
+      }
+    }
+  })
 
   it('should inject props', (done) => {
-    const store = createStore(reducer)
+    const store = createStore(dummyReducer)
 
     const TextInput = connect(({ query }) => {
       expect(query).toEqual('prepopulated query')
@@ -30,7 +38,7 @@ describe('(components/utils/connect.js)', () => {
   it('should select state from store', (done) => {
     const inputText = 'query in state'
 
-    const store = createStore(reducer, {
+    const store = createStore(dummyReducer, {
       query: inputText
     })
 
@@ -51,7 +59,7 @@ describe('(components/utils/connect.js)', () => {
   })
 
   it('should inject a dispatch fn', (done) => {
-    const store = createStore(reducer)
+    const store = createStore(dummyReducer)
 
     const TextInput = connect(({ dispatch }) => {
       expect(dispatch).toBeA(Function)

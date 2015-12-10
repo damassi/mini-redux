@@ -1,15 +1,26 @@
 import React, { Component, PropTypes } from 'react'
 import { mount } from 'enzyme'
 import expect from 'expect'
-import createStore from 'utils/createStore'
-import reducer, { _initialState } from 'reducers/flickrReducer'
-import Provider from 'components/utils/Provider'
-import connect from 'components/utils/connect'
+import reducer from 'utils/reducer'
+import createStore from './createStore'
+import Provider from './Provider'
+import connect from './connect'
 
-describe('(components/utils/Provider.js)', () => {
+describe('(./Provider.js)', () => {
+  const initialState = {
+    query: ''
+  }
+
+  const dummyReducer = reducer(initialState, {
+    query(state, action) {
+      return {
+        query: action.payload.query
+      }
+    }
+  })
 
   it('should inject a `store` context into the tree', (done) => {
-    const store = createStore(reducer)
+    const store = createStore(dummyReducer)
 
     class TextInput extends Component {
       static contextTypes = {
@@ -39,7 +50,7 @@ describe('(components/utils/Provider.js)', () => {
   it('should rerender component whenever state changes', (done) => {
     const testQuery = 'searching for something'
 
-    const store = createStore(reducer, _initialState)
+    const store = createStore(dummyReducer, initialState)
 
     const TextInput = connect(({ query }) => {
       if (query) {
@@ -67,7 +78,7 @@ describe('(components/utils/Provider.js)', () => {
   })
 
   it('should update Provider `state` history whenever state changes', () => {
-    const store = createStore(reducer)
+    const store = createStore(dummyReducer)
 
     const TextInput = () => <div />
 

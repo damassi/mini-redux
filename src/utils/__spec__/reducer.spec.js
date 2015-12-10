@@ -1,7 +1,7 @@
 import expect from 'expect'
-import reducer from 'reducers/utils/reducer'
+import reducer from 'utils/reducer'
 
-describe('(reducers/utils/reducer.js)', () => {
+describe('(utils/reducer.js)', () => {
 
   it('should return a reducer', () => {
     const initialState = {
