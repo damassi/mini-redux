@@ -1,12 +1,12 @@
 import expect from 'expect'
-import flickrReducer, { _initialState } from 'reducers/flickrReducer'
+import photoReducer, { _initialState } from 'reducers/photoReducer'
 import { QUERY, UPDATE_STATUS } from 'constants/actionTypes'
 
-describe('(components/actions/flickrReducer.js)', () => {
+describe('(components/actions/photoReducer.js)', () => {
 
   it('#query()', () => {
     expect(
-      flickrReducer(_initialState, {
+      photoReducer(_initialState, {
         type: QUERY,
         payload: {
           query: 'search query'
@@ -22,7 +22,7 @@ describe('(components/actions/flickrReducer.js)', () => {
 
   it('#updateStatus() -> Success', () => {
     expect(
-      flickrReducer(_initialState, {
+      photoReducer(_initialState, {
         type: UPDATE_STATUS,
         payload: {
           responseStatus: {
@@ -41,7 +41,7 @@ describe('(components/actions/flickrReducer.js)', () => {
 
   it('#updateStatus() -> Error', () => {
     expect(
-      flickrReducer(_initialState, {
+      photoReducer(_initialState, {
         type: UPDATE_STATUS,
         payload: {
           responseStatus: {

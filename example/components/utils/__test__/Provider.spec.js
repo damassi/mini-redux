@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { mount } from 'enzyme'
 import expect from 'expect'
 import createStore from 'utils/createStore'
-import reducer, { _initialState } from 'reducers/flickrReducer'
+import reducer, { _initialState } from 'reducers/photoReducer'
 import Provider from 'components/utils/Provider'
 import connect from 'components/utils/connect'
 

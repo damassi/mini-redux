@@ -1,6 +1,6 @@
 import 'babel/polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import { FlickrApp } from './FlickrApp'
+import { PhotoApp } from './PhotoApp'
 
-render(<FlickrApp />, document.getElementById('root'))
+render(<PhotoApp />, document.getElementById('root'))

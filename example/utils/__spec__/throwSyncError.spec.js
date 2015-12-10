@@ -1,12 +1,12 @@
 import expect from 'expect'
 import throwSyncError from 'utils/throwSyncError'
-import flickrReducer from 'reducers/flickrReducer'
+import photoReducer from 'reducers/photoReducer'
 import createStore from 'utils/createStore'
 
 describe('(utils/throwSyncError.js)', () => {
 
   it('should update store status', () => {
-    const store = createStore(flickrReducer)
+    const store = createStore(photoReducer)
 
     throwSyncError(null, {
       responseStatus: {

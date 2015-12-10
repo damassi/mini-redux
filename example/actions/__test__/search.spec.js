@@ -1,9 +1,9 @@
 import fetchMock from 'fetch-mock'
 import queryString from 'query-string'
 import expect from 'expect'
-import { FLICKR_API_ENDPOINT, FLICKR_API_KEY, PAGE_SIZE } from 'constants/config'
+import { PHOTO_API_ENDPOINT, PHOTO_API_KEY, PAGE_SIZE } from 'constants/config'
 import createStore from 'utils/createStore'
-import reducer from 'reducers/flickrReducer'
+import reducer from 'reducers/photoReducer'
 import search from 'actions/search'
 
 describe('(components/actions/search.js)', () => {
@@ -11,7 +11,7 @@ describe('(components/actions/search.js)', () => {
   const searchQuery = 'user search text'
 
   const params = queryString.stringify({
-    api_key: FLICKR_API_KEY,
+    api_key: PHOTO_API_KEY,
     format: 'json',
     nojsoncallback: '?',
     method: 'flickr.photos.search',
@@ -19,7 +19,7 @@ describe('(components/actions/search.js)', () => {
     text: searchQuery
   })
 
-  const url = FLICKR_API_ENDPOINT + '?' + params
+  const url = PHOTO_API_ENDPOINT + '?' + params
 
   beforeEach(() => {
     fetchMock.mock(url, {

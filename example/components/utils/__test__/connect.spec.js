@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import expect from 'expect'
 import createStore from 'utils/createStore'
-import reducer from 'reducers/flickrReducer'
+import reducer from 'reducers/photoReducer'
 import Provider from 'components/utils/Provider'
 import connect from 'components/utils/connect'
 

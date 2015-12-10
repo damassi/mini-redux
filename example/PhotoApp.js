@@ -1,14 +1,14 @@
 import React from 'react'
 import createStore from 'utils/createStore'
-import flickrReducer from 'reducers/flickrReducer'
+import photoReducer from 'reducers/photoReducer'
 import Provider from 'components/utils/Provider'
 import Status from 'components/Status'
 import SearchInput from 'components/SearchInput'
 import Photos from 'components/Photos'
 
-const store = createStore(flickrReducer)
+const store = createStore(photoReducer)
 
-export const FlickrApp = () =>
+export const PhotoApp = () =>
   <div style={styles.container}>
     <Provider store={store}>
       <Status />
