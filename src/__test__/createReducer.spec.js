@@ -21,7 +21,7 @@ describe('(createReducer.js)', () => {
     const queryReducer = createReducer(actionsMap, initialState)
 
     expect(
-      querycreateReducer(initialState, {
+      queryReducer(initialState, {
         type: 'QUERY',
         payload: {
           query: 'updated'
