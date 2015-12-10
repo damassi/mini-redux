@@ -2,7 +2,7 @@ import expect from 'expect'
 import createReducer from './createReducer'
 import createStore from './createStore'
 
-describe('(./createStore.js)', () => {
+describe('(createStore.js)', () => {
 
   const dummyReducer = createReducer({ query: '' }, {
     query(state, action) {

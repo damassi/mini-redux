@@ -27,7 +27,7 @@ describe('(components/actions/search.js)', () => {
     })
   })
 
-  beforeEach(() => {
+  afterEach(() => {
     fetchMock.restore()
   })
 
